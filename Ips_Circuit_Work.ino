@@ -111,7 +111,13 @@ void loop() {
     Voltage();
   } else if (currentMillis - previousMillis2 <= 30000) {
     displayVoltageStatus();
-  } else if (currentMillis - previousMillis2 >= 40000) {
+  } else if (currentMillis - previousMillis2 >= 32000) {
+    if(digitalRead(RELAY_PIN) == 1){
+      digitalWrite(BUZZER, 1);
+      delay(100);
+      digitalWrite(BUZZER, 0);
+      delay(100);
+    }
     previousMillis2 = currentMillis;
   }
 
